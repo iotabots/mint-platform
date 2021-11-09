@@ -2,7 +2,7 @@
   "name": "mint-platform",
   "version": "0.1.0",
   "private": true,
-  "homepage": "nft.iotabots.io",
+  "homepage": "https://nft.iotabots.io",
   "dependencies": {
     "ipfs-http-client": "^52.0.0",
     "react": "^17.0.2",
