@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, Image } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
@@ -109,6 +109,7 @@ function App() {
 
   useEffect(() => {
     getData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blockchain.account]);
 
   return (
@@ -139,7 +140,7 @@ function App() {
             ai={"center"}
             style={{ backgroundColor: "#383838", padding: 24 }}
           >
-            {Number(data.totalSupply) == 1000 ? (
+            {Number(data.totalSupply) === 1000 ? (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
                   Sorry - the sale has ended.
@@ -248,7 +249,7 @@ function App() {
         <s.SpacerSmall />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription style={{ textAlign: "center", fontSize: 9 }}>
-            Please make sure you are connected to the right network (<a target="_blank" href="https://wiki.iota.org/wasp/guide/chains_and_nodes/testnet#interact-with-evm">IOTA EVM Testnet</a>) and the correct address. Please note: The Tesnet reset sometimes (after software updates) - unfortunately, your NFT will be lost. That's why we can't wait for the mainnet!
+            Please make sure you are connected to the right network (<a target="_blank" rel="noreferrer" href="https://wiki.iota.org/wasp/guide/chains_and_nodes/testnet#interact-with-evm">IOTA EVM Testnet</a>) and the correct address. Please note: The Tesnet reset sometimes (after software updates) - unfortunately, your NFT will be lost. That's why we can't wait for the mainnet!
           </s.TextDescription>
           <s.SpacerSmall />
         </s.Container>
