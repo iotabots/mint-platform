@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/nft.iotabots.io/static/css/main.d6b4c0ca.chunk.css",
+    "main.js": "/nft.iotabots.io/static/js/main.9f6a8c07.chunk.js",
+    "main.js.map": "/nft.iotabots.io/static/js/main.9f6a8c07.chunk.js.map",
+    "runtime-main.js": "/nft.iotabots.io/static/js/runtime-main.4f125988.js",
+    "runtime-main.js.map": "/nft.iotabots.io/static/js/runtime-main.4f125988.js.map",
+    "static/js/2.dc84a35f.chunk.js": "/nft.iotabots.io/static/js/2.dc84a35f.chunk.js",
+    "static/js/2.dc84a35f.chunk.js.map": "/nft.iotabots.io/static/js/2.dc84a35f.chunk.js.map",
+    "static/js/3.bf8be918.chunk.js": "/nft.iotabots.io/static/js/3.bf8be918.chunk.js",
+    "static/js/3.bf8be918.chunk.js.map": "/nft.iotabots.io/static/js/3.bf8be918.chunk.js.map",
+    "index.html": "/nft.iotabots.io/index.html",
+    "static/css/main.d6b4c0ca.chunk.css.map": "/nft.iotabots.io/static/css/main.d6b4c0ca.chunk.css.map",
+    "static/js/2.dc84a35f.chunk.js.LICENSE.txt": "/nft.iotabots.io/static/js/2.dc84a35f.chunk.js.LICENSE.txt",
+    "static/media/reset.css": "/nft.iotabots.io/static/media/PressStart2P-Regular.f2341734.woff",
+    "static/media/iota-bots-logo.49795399.png": "/nft.iotabots.io/static/media/iota-bots-logo.49795399.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f125988.js",
+    "static/js/2.dc84a35f.chunk.js",
+    "static/css/main.d6b4c0ca.chunk.css",
+    "static/js/main.9f6a8c07.chunk.js"
+  ]
+}
