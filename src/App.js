@@ -82,7 +82,7 @@ function App() {
       .mint(blockchain.account, _amount)
       .send({
         gasLimit: "285000",
-        to: "0x6c2D60145cDD0396bd03298693495bf98fcdD93E",
+        to: "0x1c801c3100Df533B605Be8832ae21ACbAe0a7992",
         from: blockchain.account,
         // value: blockchain.web3.utils.toWei((100 * _amount).toString(), "ether"),
         value: blockchain.web3.utils.toWei("0", "ether"),
@@ -130,7 +130,7 @@ function App() {
             <s.TextTitle
               style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
             >
-              {data.totalSupply}/1000
+              {parseInt(data.totalSupply) + 500}/1000
             </s.TextTitle>
           </s.Container>
           <s.SpacerMedium />
@@ -140,7 +140,7 @@ function App() {
             ai={"center"}
             style={{ backgroundColor: "#383838", padding: 24 }}
           >
-            {Number(data.totalSupply) === 1000 ? (
+            {Number(data.totalSupply) === 500 ? (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
                   Sorry - the sale has ended.
