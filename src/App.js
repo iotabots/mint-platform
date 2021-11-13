@@ -68,6 +68,14 @@ function App() {
   const [feedback, setFeedback] = useState("Maybe it's your lucky day.");
   const [claimingNft, setClaimingNft] = useState(false);
 
+  const nft = {
+    name: "IOTABOTS",
+    symbol: "IOTABOTS",
+    address: "",
+    price: 0
+  }
+
+
   const claimNFTs = (_amount) => {
 
 
@@ -76,7 +84,7 @@ function App() {
     if (_amount < 0) {
       return;
     }
-    setFeedback("Minting your IOTABOT...");
+    setFeedback("Minting your NFT...");
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, _amount)
@@ -94,7 +102,7 @@ function App() {
       })
       .then((receipt) => {
         setFeedback(
-          "WOW, you now own a IOTABOT. Congratulations :-)"
+          "WOW, you now own a NFT. Congratulations :-)"
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -109,120 +117,140 @@ function App() {
 
   useEffect(() => {
     getData();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blockchain.account]);
+
+
+  let sold_out = true;
 
   return (
     <s.Screen style={{ backgroundColor: "var(--primary)" }}>
       <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
 
         <s.SpacerMedium />
-        <ResponsiveWrapper flex={1} style={{ padding: 24 }}>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={iota_bot_img} />
-            <s.SpacerMedium />
-            <s.TextTitle
-              style={{ textAlign: "center", fontSize: 28, fontWeight: "bold" }}
-            >
-              Mint your IOTABOT NFT!
-            </s.TextTitle>
-            <s.SpacerMedium />
-            <s.TextTitle
-              style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
-            >
-              {parseInt(data.totalSupply) + 500}/1000
-            </s.TextTitle>
-          </s.Container>
-          <s.SpacerMedium />
-          <s.Container
-            flex={1}
-            jc={"center"}
-            ai={"center"}
-            style={{ backgroundColor: "#383838", padding: 24 }}
-          >
-            {Number(data.totalSupply) === 500 ? (
-              <>
-                <s.TextTitle style={{ textAlign: "center" }}>
-                  Sorry - the sale has ended.
-                </s.TextTitle>
-                <s.SpacerSmall />
-              </>
-            ) : (
-              <>
-                <s.TextTitle style={{ textAlign: "center" }}>
-                  1 IOTABOT costs 0 MIOTA.
-                </s.TextTitle>
-                <s.SpacerMedium />
-                <s.TextDescription style={{ textAlign: "center" }}>
-                  No gas fees.
-                </s.TextDescription>
-                <s.SpacerSmall />
-                <s.TextDescription style={{ textAlign: "center" }}>
-                  One free IOTABOT for each user.
-                </s.TextDescription>
-                <s.SpacerSmall />
-                <s.TextDescription style={{ textAlign: "center" }}>
-                  {feedback}
-                </s.TextDescription>
-                <s.SpacerMedium />
-                {blockchain.account === "" ||
-                  blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
-                    <s.TextDescription style={{ textAlign: "center" }}>
-                      Connect to the IOTA EVM Testnet network
-                    </s.TextDescription>
-                    <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT
-                    </StyledButton>
-                    {blockchain.errorMsg !== "" ? (
-                      <>
-                        <s.SpacerSmall />
-                        <s.TextDescription style={{ textAlign: "center" }}>
-                          {blockchain.errorMsg}
-                        </s.TextDescription>
-                      </>
-                    ) : null}
-                  </s.Container>
-                ) : (
-                  <s.Container ai={"center"} jc={"center"} fd={"column"}>
-                    
 
-                    <ClipLoader color="#02c692" loading={claimingNft} size={50} />
-                    <s.SpacerMedium />
-                    <StyledButton
-                    disabled={claimingNft ? 1 : 0}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      claimNFTs(1);
-                      getData();
-                    }}
-                    >
-                      {claimingNft ? "BUSY" : "GET A NFT"}
-                    </StyledButton>
+        {sold_out ? (
+          <ResponsiveWrapper flex={1} style={{ padding: 24 }}>
+            <s.Container flex={1} jc={"center"} ai={"center"}>
+              <s.TextTitle
+                style={{ textAlign: "center", fontSize: 28, fontWeight: "bold" }}
+              >
+                Sorry - We're sold out!
+              </s.TextTitle>
+              <s.SpacerMedium />
+              <s.TextTitle style={{ textAlign: "center" }}>
+                    Next drop? <a target="_blank" href="https://twitter.com/iotabots">@iotabots</a>
+                  </s.TextTitle>
+              <video width="50%" id="soonbot_video" autoplay>
+                <source src="./assets/Soonbot.mp4" type="video/mp4" />
+              </video>
+            </s.Container>
+          </ResponsiveWrapper>
+        ) : (
+          <ResponsiveWrapper flex={1} style={{ padding: 24 }}>
+            <s.Container flex={1} jc={"center"} ai={"center"}>
+              <StyledImg alt={"example"} src={iota_bot_img} />
+              <s.SpacerMedium />
+              <s.TextTitle
+                style={{ textAlign: "center", fontSize: 28, fontWeight: "bold" }}
+              >
+                Mint {nft.name} now!
+              </s.TextTitle>
+              <s.SpacerMedium />
+              <s.TextTitle
+                style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
+              >
+                {parseInt(data.totalSupply)}/1000
+              </s.TextTitle>
+            </s.Container>
+            <s.SpacerMedium />
+            <s.Container
+              flex={1}
+              jc={"center"}
+              ai={"center"}
+              style={{ backgroundColor: "#383838", padding: 24 }}
+            >
+              {Number(data.totalSupply) === 1000 ? (
+                <>
+                  <s.TextTitle style={{ textAlign: "center" }}>
+                    Sorry - the sale has ended.
+                  </s.TextTitle>
+                  <s.SpacerSmall />
+                </>
+              ) : (
+                <>
+                  <s.TextTitle style={{ textAlign: "center" }}>
+                    1 {nft.symbol} costs {nft.price} MIOTA.
+                  </s.TextTitle>
+                  <s.SpacerMedium />
+                  <s.TextDescription style={{ textAlign: "center" }}>
+                    No gas fees.
+                  </s.TextDescription>
+                  <s.SpacerSmall />
+                  <s.TextDescription style={{ textAlign: "center" }}>
+                    One free {nft.symbol} for each user.
+                  </s.TextDescription>
+                  <s.SpacerSmall />
+                  <s.TextDescription style={{ textAlign: "center" }}>
+                    {feedback}
+                  </s.TextDescription>
+                  <s.SpacerMedium />
+                  {blockchain.account === "" ||
+                    blockchain.smartContract === null ? (
+                    <s.Container ai={"center"} jc={"center"}>
+                      <s.TextDescription style={{ textAlign: "center" }}>
+                        Connect to the IOTA EVM Testnet network
+                      </s.TextDescription>
+                      <s.SpacerSmall />
+                      <StyledButton
+                        onClick={(e) => {
+                          e.preventDefault();
+                          dispatch(connect());
+                          getData();
+                        }}
+                      >
+                        CONNECT
+                      </StyledButton>
+                      {blockchain.errorMsg !== "" ? (
+                        <>
+                          <s.SpacerSmall />
+                          <s.TextDescription style={{ textAlign: "center" }}>
+                            {blockchain.errorMsg}
+                          </s.TextDescription>
+                        </>
+                      ) : null}
+                    </s.Container>
+                  ) : (
+                    <s.Container ai={"center"} jc={"center"} fd={"column"}>
 
-                  </s.Container>
-                )}
-              </>
-            )}
-          </s.Container>
-        </ResponsiveWrapper>
+
+                      <ClipLoader color="#02c692" loading={claimingNft} size={50} />
+                      <s.SpacerMedium />
+                      <StyledButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          claimNFTs(1);
+                          getData();
+                        }}
+                      >
+                        {claimingNft ? "BUSY" : "GET A NFT"}
+                      </StyledButton>
+
+                    </s.Container>
+                  )}
+                </>
+              )}
+            </s.Container>
+          </ResponsiveWrapper>
+        )}
         <s.SpacerSmall />
 
         <s.Container jc={"center"} ai={"center"}>
           <s.TextTitle style={{ textAlign: "center" }}>
-            Your IOTABOTS
+            Your {nft.name}
           </s.TextTitle>
           <s.SpacerSmall />
-          <s.TextDescription style={{ textAlign: "center", fontSize: 12 }}>
-            Feel free to download your IOTABOT and use it as your profile picture on your preferred social media!
-          </s.TextDescription>
           <s.SpacerSmall />
           {data.nfts.length ? (
             <>
@@ -238,10 +266,10 @@ function App() {
             </>
           ) : (
             <s.TextDescription style={{ textAlign: "center", fontSize: 14 }}>
-            You dont have any IOTABOTS yet :-(
-          </s.TextDescription>
+              You dont have any {nft.name} yet :-(
+            </s.TextDescription>
           )
-          
+
           }
 
         </s.Container>
