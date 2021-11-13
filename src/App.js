@@ -139,7 +139,7 @@ function App() {
               </s.TextTitle>
               <s.SpacerMedium />
               <s.TextTitle style={{ textAlign: "center" }}>
-                    Next drop? <a target="_blank" href="https://twitter.com/iotabots">@iotabots</a>
+                    Next drop? <a target="_blank" rel="noreferrer" href="https://twitter.com/iotabots">@iotabots</a>
                   </s.TextTitle>
               <video width="50%" id="soonbot_video" autoplay>
                 <source src="./assets/Soonbot.mp4" type="video/mp4" />
