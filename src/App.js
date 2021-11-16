@@ -71,7 +71,7 @@ function App() {
   const nft = {
     name: "IOTABOTS",
     symbol: "IOTABOTS",
-    address: "",
+    address: "0x866fe4fcA79A98825eE0eB566C62c1f11B9aB461",
     price: 0
   }
 
