@@ -14,6 +14,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        paused: false,
         error: false,
         errorMsg: "",
       };
@@ -22,6 +23,7 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         name: action.payload.name,
+        paused: action.payload.paused,
         totalSupply: action.payload.totalSupply,
         cost: action.payload.cost,
         error: false,
@@ -32,6 +34,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...initialState,
         loading: false,
+        paused: false,
         error: true,
         errorMsg: action.payload,
       };

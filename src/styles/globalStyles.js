@@ -68,6 +68,15 @@ export const TextDescription = styled.p`
   font-size: 12px;
   line-height: 1.6;
 `;
+export const Card = styled.p`
+  color: var(--white);
+  font-size: 12px;
+  line-height: 1.6;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+`;
 
 export const StyledClickable = styled.div`
   :active {

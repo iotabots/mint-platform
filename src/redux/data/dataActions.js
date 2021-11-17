@@ -30,6 +30,10 @@ export const fetchData = (account) => {
         .getState()
         .blockchain.smartContract.methods.name()
         .call();
+      let paused = await store
+        .getState()
+        .blockchain.smartContract.methods.paused()
+        .call();
       let totalSupply = await store
         .getState()
         .blockchain.smartContract.methods.totalSupply()
@@ -46,6 +50,7 @@ export const fetchData = (account) => {
       dispatch(
         fetchDataSuccess({
           name,
+          paused,
           totalSupply,
           cost,
           nfts

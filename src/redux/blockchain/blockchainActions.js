@@ -1,9 +1,11 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import SmartContract from "../../contracts/NCC.json";
+import SmartContract from "../../contracts/ABI.json";
 // log
 import { fetchData } from "../data/dataActions";
+
+import { nft } from "../../config";
 
 const connectRequest = () => {
   return {
@@ -51,7 +53,7 @@ export const connect = () => {
         if (networkId === "1074") {
           const SmartContractObj = new Web3EthContract(
             SmartContract,
-            "0x866fe4fcA79A98825eE0eB566C62c1f11B9aB461"
+            nft.address
           );
           dispatch(
             connectSuccess({
