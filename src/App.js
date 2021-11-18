@@ -52,11 +52,13 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledNFT = styled.img`
-  width: 400px;
-  height: 400px;
+  /* width: 100%; */
+  height: 100%;
+  max-width: 350px;
   @media (min-width: 767px) {
-    width: 350px;
-    height: 350px;
+    max-width: 350px;
+    /* height: 350px; */
+    height: 100%;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -153,7 +155,7 @@ function App() {
         ) : (
           <ResponsiveWrapper flex={1} style={{ padding: 24 }}>
             <s.Container flex={1} jc={"center"} ai={"center"}>
-              <StyledImg alt={"example"} src={iota_bot_img} />
+              <StyledNFT alt={"example"} src={iota_bot_img} />
               <s.SpacerMedium />
               <s.TextTitle
                 style={{ textAlign: "center", fontSize: 28, fontWeight: "bold" }}
