@@ -295,7 +295,7 @@ function App() {
                       </s.TextDescription>
                       <br />
                       <s.TextTitle style={{ textAlign: "center" }}>
-                        <a rel="noreferrer" target="_blank" href="https://gateway.pinata.cloud/ipfs/QmXUgyfXXxFmigDs3apWAWk1m7mNXjFqbbJnUciPGEfLco">Play</a>
+                        <a rel="noreferrer" target="_blank" href="https://gateway.pinata.cloud/ipfs/QmZAiQCXxGUzgtVTqtbzJtFrqrKkiueNDMMxM5xqDXPbpo">Play</a>
                       </s.TextTitle>
                       <StyledNFT class src={iota_bot_img}></StyledNFT>
                     </s.Card>
