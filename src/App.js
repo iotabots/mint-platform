@@ -178,7 +178,7 @@ function App() {
               <s.TextTitle
                 style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
               >
-                {data.totalSupply ? `${parseInt(data.totalSupply)} / 1000` : ""}
+                {data.totalSupply ? `${parseInt(data.totalSupply)} / 1001` : ""}
               </s.TextTitle>
             </s.Container>
             <s.SpacerMedium />
@@ -198,7 +198,7 @@ function App() {
                 </>
               ) : (
                 <>
-                  {Number(data.totalSupply) === 1000 ? (
+                  {Number(data.totalSupply) === 1001 ? (
                     <>
                       <s.TextTitle style={{ textAlign: "center" }}>
                         Sorry - the sale has ended.
