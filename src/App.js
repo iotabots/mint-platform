@@ -7,6 +7,7 @@ import styled from "styled-components";
 import iota_bot_img from "./assets/images/Game.png";
 import ClipLoader from "react-spinners/ClipLoader";
 import { nft } from "./config";
+import ReactPlayer from "react-player";
 
 export const StyledButton = styled.button`
   padding: 10px;
@@ -130,7 +131,7 @@ function App() {
   let sold_out = false;
 
   return (
-    <s.Screen style={{ backgroundColor: "var(--primary)" }}>
+    <s.Screen style={{ backgroundColor: "var(--dark-grey)" }}>
       <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
 
         <s.SpacerMedium />
@@ -147,7 +148,7 @@ function App() {
               <s.TextTitle style={{ textAlign: "center" }}>
                 Next drop? <a target="_blank" rel="noreferrer" href="https://twitter.com/iotabots">@iotabots</a>
               </s.TextTitle>
-              <video width="50%" id="soonbot_video" autoplay>
+              <video width="100%" id="soonbot_video" autoplay>
                 <source src="./assets/Soonbot.mp4" type="video/mp4" />
               </video>
             </s.Container>
@@ -155,13 +156,24 @@ function App() {
         ) : (
           <ResponsiveWrapper flex={1} style={{ padding: 24 }}>
             <s.Container flex={1} jc={"center"} ai={"center"}>
-              <StyledNFT alt={"example"} src={iota_bot_img} />
-              <s.SpacerMedium />
               <s.TextTitle
                 style={{ textAlign: "center", fontSize: 28, fontWeight: "bold" }}
               >
                 Mint {nft.name} now!
               </s.TextTitle>
+              <ReactPlayer
+                url={'/assets/Spacebots_Cartridge.mp4'}
+                playing={true}
+                loop={true}
+                muted={true}
+                width={"100%"}
+                height={"100%"}
+                style={
+                  {maxWidth: '350px'}
+                }
+              />
+              <s.SpacerMedium />
+
               <s.SpacerMedium />
               <s.TextTitle
                 style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
@@ -178,12 +190,12 @@ function App() {
             >
 
               {data.paused ? (
-                 <>
-                 <s.TextTitle style={{ textAlign: "center" }}>
-                   Sorry - the sale has not started yet.
-                 </s.TextTitle>
-                 <s.SpacerSmall />
-               </>
+                <>
+                  <s.TextTitle style={{ textAlign: "center" }}>
+                    Sorry - the sale has not started yet.
+                  </s.TextTitle>
+                  <s.SpacerSmall />
+                </>
               ) : (
                 <>
                   {Number(data.totalSupply) === 1000 ? (
@@ -283,7 +295,7 @@ function App() {
                       </s.TextDescription>
                       <br />
                       <s.TextTitle style={{ textAlign: "center" }}>
-                        <a rel="noreferrer" target="_blank" href="https://gateway.pinata.cloud/ipfs/QmV3VNp4i5iJwQqkV6HCmdg5MRTSr1ZCdjH17prE5QgB5q">Play</a>
+                        <a rel="noreferrer" target="_blank" href="https://gateway.pinata.cloud/ipfs/QmXUgyfXXxFmigDs3apWAWk1m7mNXjFqbbJnUciPGEfLco">Play</a>
                       </s.TextTitle>
                       <StyledNFT class src={iota_bot_img}></StyledNFT>
                     </s.Card>
